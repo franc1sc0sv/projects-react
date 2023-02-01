@@ -1,0 +1,164 @@
+From meta
+Porque react?
+Que tiene react por detras?
+Como hemos llegado aca?
+
+**Interfaces de usuario** - independientemente de donde sea
+Paginas web, aplicaciones moviles, terminal
+Agnostico de la plataforma
+Divido en diferentes paqutes
+React doom - only Navegador
+
+    Declarativo
+    Componentes
+
+Construir tu UI con piezas de lego
+Biblioteca universal - Se puede ejecutar tanto en el cliente como en el server
+
+React lo soluciona - (evitar xss)
+
+React tiene una API estable
+
+Codigo Inperativo - le estamos diciendo al codigo que hacer, describiendo como hacer las cosas, una serie de instucciones
+El codigo inperativo no escala bien
+//Codigo inperativo
+const buttons = document.querySelectorAll('button')
+
+buttons.forEach(button => {
+  button.addEventListener('click', (ev) => {
+    const id = ev.target.getAttribute('data-id')
+    if (ev.target.classList.contains('liked')) {
+      ev.target.classList.remove('liked')
+      ev.target.innerText = 'Me gusta'
+    } else {
+      ev.target.classList.add('liked')
+      ev.target.innerText = 'Quitar me gusta'
+    }
+  })
+})
+
+
+//
+Injectar componentes desde la pagina web
+React es una biblioteca y la podemos usar puramente con js - Se puede usar sin instalar nada
+En react vamos a crear un arbol de elementos este arbbol va ir crendo nuestra ui en base de componentes
+Pero tenemos que partir desde una raiz
+
+
+En react no podemos renderizar html de esta manera
+root.render("<button>Hola</button>")
+Porque lo que va injectar es literalmente "<button>Hola</button>" y esto lo hace para que no puedan injectar codigo
+
+
+Necesitamos crear los elemntos
+
+React solo renderiza un elemento a la vez
+Lo podemos solucionar envolviendolo
+
+
+DEJAR EL HTML MAS SIMPLE
+
+JSX god
+
+SWC - BABEL
+
+TRANSIALCION DE JSX
+
+Normal
+Forma larga verbosa
+const button = React.createElement("Button", {"data-id":123}, "Me gusta")
+var button = React.createElement("Button", {
+    "data-id": 123
+}, "Me gusta");
+
+JSX
+const buttonJSX = <button data-id="123">Me gusta</button> 
+var buttonJSX = React.createElement("button", {
+    "data-id": "123"
+}, "Me gusta");
+
+Transpilador de codigo 
+
+
+JSX NO ES HTML es JS
+Lo estamos escribiendo como jsx porque lo podemos usar de una forma mas declarativa
+
+en jsx podemos usar {} para escribir algo que retorna un valor por ejemplo variables, funciones
+
+Para escribir propiedades en jsx como es js seria con camelCase tab-index = tabIndex
+
+EMPAQUETADOR de aplicaciones web
+Vite - va mas rapido, es compatible con vue,svelte,etc
+Create React App - usa webpack (forma oficial, lenta, no va bien)
+
+JS + SWC(transpilador de codigo)
+
+Componentes tienen que ser PascalCase
+    PascalCase 
+    camelCase
+    snake_case
+    kebab-case
+
+
+Para reutilizar los componentes en react los tenemos que parametrizar
+
+
+
+
+
+IMPORTANTE EN React
+
+Diferencia entre componente y elemento 
+
+
+Un componente es una factoria de elementos - Una funcion que al ejecutarla te devuelve un elemento
+El elemento es lo que renderiza react
+
+Los componentes crean elementos y los elemntos son los que renderizan react
+
+
+ESTADOS EN REACT
+
+
+
+Renderizado condicional
+
+
+Desestructuracion de JS
+
+Estado interno
+
+
+imperativo: estrucciones presisas de que quieres hacer
+declaratico: de una 
+
+
+react-reaccionar
+
+VIRTUAL DOOM
+React lo que hace cuando renderiza nuevos elementos es que de una forma quirurgica cambia solo lo que necesita ser cambiadp
+Lo unico que ha cambiado y tengo que volver a renderizar es esto . . .
+
+Como hace esto?
+React le hace una "foto" a todo lo que renderiza 
+Lo recupera y crea un arbol de elementos y dice cual es la diferencia entre lo que he renderizado antes y lo que quiero renderizar ahora
+Y va realizar los cambios minimos
+
+Cuando cambia el estado interno renderiza los componente 
+
+Renderiza cuando hay cambios a un componente padre por ende afecta a los hijos
+
+
+Cuando se VUELVA RENDERIZAR un elemnto padre sin importar si las props cambian todos los hijos se va a volver a renderiza
+
+Diferencia que hay que tener en cuenta
+
+A pesar que cada que se renderiza un elemento padre se vuelve a renderizar los hijos solo van a alterar al doom virtual
+los que poseen cambios reales - react compara los elemntos y deja intanto al que no sufrio cambios y no toca el doom
+
+
+Inicializar una estado con una prop
+
+
+Si utilizamos una prop para inicializar un estado solo se incializa una vez es decir si tenemos un estado en le padre
+y ese estado lo queremos como prop para renderizar un compoenente solo lo hara una vez aunque el interno siga funcionando
