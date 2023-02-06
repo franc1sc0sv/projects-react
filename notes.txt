@@ -162,3 +162,7 @@ Inicializar una estado con una prop
 
 Si utilizamos una prop para inicializar un estado solo se incializa una vez es decir si tenemos un estado en le padre
 y ese estado lo queremos como prop para renderizar un compoenente solo lo hara una vez aunque el interno siga funcionando
+
+
+
+La actualizacion de estados en react es asincrono 
