@@ -1,14 +1,17 @@
 import React, { useState } from "react";
 import { TurnMarker } from "./TurnMarker.jsx";
 
-export const Modal = ({ winner, initialValueShowModal, resetGameFunction }) => {
-  const [showModal, setShowModal] = useState(initialValueShowModal);
+export const Modal = ({ winner, resetGame }) => {
+  if (winner == null) return null;
+  const [showModal, setShowModal] = useState(true);
+  console.log(setShowModal)
   const closeModal = () => setShowModal(false);
-  //   if (setModal) setShowModal(setModal);
+  
   return (
     <>
       {showModal ? (
         <>
+          {console.log("rendered model")}
           <div className="modal opacity-100 fixed w-full h-full top-0 left-0 flex items-center justify-center">
             <div className="modal-overlay absolute w-full h-full bg-gray-900 opacity-50"></div>
             <div className="modal-container bg-white w-11/12 md:max-w-md mx-auto rounded shadow-lg z-50 overflow-y-auto">
@@ -41,7 +44,7 @@ export const Modal = ({ winner, initialValueShowModal, resetGameFunction }) => {
                 <div className="flex justify-end pt-2 gap-2">
                   <button
                     className="modal-close font-bold  px-4 bg-[#5746AF] p-3 rounded-lg text-white "
-                    onClick={resetGameFunction}
+                    onClick={resetGame}
                   >
                     Reset game
                   </button>
