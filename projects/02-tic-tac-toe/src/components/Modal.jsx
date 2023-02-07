@@ -4,7 +4,6 @@ import { TurnMarker } from "./TurnMarker.jsx";
 export const Modal = ({ winner, resetGame }) => {
   if (winner == null) return null;
   const [showModal, setShowModal] = useState(true);
-  console.log(setShowModal)
   const closeModal = () => setShowModal(false);
   
   return (

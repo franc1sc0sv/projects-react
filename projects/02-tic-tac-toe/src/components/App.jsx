@@ -5,10 +5,18 @@ import confetti from "canvas-confetti";
 import { turns } from "../js/constans.js";
 import { checkEndGame, checkWinner } from "../js/functions.js";
 import { Square } from "./Square.jsx";
+import { saveGameStorage, resetGameStorage } from "../js/storage.js";
 
 export const App = () => {
-  const [turn, SetTurn] = useState(turns.x);
-  const [board, SetBoard] = useState(Array(9).fill(null));
+  const [turn, SetTurn] = useState(() => {
+    const turnLocalStorage = window.localStorage.getItem("turn");
+    return turnLocalStorage ?? turns.x;
+  });
+  const [board, SetBoard] = useState(() => {
+    const BoardLocalStorage = window.localStorage.getItem("board");
+    console.log(BoardLocalStorage);
+    return JSON.parse(BoardLocalStorage) ?? Array(9).fill(null);
+  });
   const [winner, SetWinner] = useState(null);
 
   const updateBoard = (i) => {
@@ -19,7 +27,7 @@ export const App = () => {
 
     const newTurn = turn == turns.x ? turns.o : turns.x;
     SetTurn(newTurn);
-
+    saveGameStorage({ board: newBoard, turn: newTurn });
     const newWinner = checkWinner(newBoard);
     if (newWinner) {
       confetti();
@@ -33,6 +41,7 @@ export const App = () => {
     SetWinner(null);
     SetTurn(turns.x);
     SetBoard(Array(9).fill(null));
+    resetGameStorage();
   };
 
   return (

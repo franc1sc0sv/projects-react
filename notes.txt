@@ -166,3 +166,13 @@ y ese estado lo queremos como prop para renderizar un compoenente solo lo hara u
 
 
 La actualizacion de estados en react es asincrono 
+
+
+Los if siempre tienen que estar dentro del cuerpo del compoenmente nunca dentro de alguna estructura porque si no react peta -midu
+
+
+Como inicializo un estado comprobando si existe la variable en local storage 
+  Lo que se tiene que hacer es que le tenemos que pasar como argumento al estado para inicalizarce una funcion para realizar las comprobaciones para ver si existe esa valor en localstorage
+
+
+Leer de localStorage es muy lento es por eso que si lo dejamos afuera va ser la lectura las veces que renderizemos el compoennete y eso lo va ser lento en cambio si lo ponemos dentro de la funcion solo se va ejecutar al inicialisar el estado
