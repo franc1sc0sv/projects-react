@@ -1,20 +1,20 @@
-import React from "react";
-import { useState } from "react";
-import ReactDOM from "react-dom/client";
-import { App } from "./App.jsx";
+import React, { useState } from 'react'
+
+import ReactDOM from 'react-dom/client'
+import { App } from './App.jsx'
 
 export const MainCard = () => {
   // const [name, SetName] = useState("elrubius");
   // const setNamePropm = () => SetName(prompt("yes?"));
   const users = [
-    { userName: "elrubius", name: "elrubius", isFollowing: true },
-    { userName: "IamCristinini", name: "Cristinini", isFollowing: false },
-    { userName: "sfdxpro", name: "SfdxShow", isFollowing: false },
-    { userName: "elonmusk", name: "Elon Musk", isFollowing: true },
-  ];
+    { userName: 'elrubius', name: 'elrubius', isFollowing: true },
+    { userName: 'IamCristinini', name: 'Cristinini', isFollowing: false },
+    { userName: 'sfdxpro', name: 'SfdxShow', isFollowing: false },
+    { userName: 'elonmusk', name: 'Elon Musk', isFollowing: true }
+  ]
   return (
-    <section className=" flex flex-col gap-2">
-      {/*Cuando renderizamos una lista de elementos en react le tenemos que dar una key
+    <section className=' flex flex-col gap-2'>
+      {/* Cuando renderizamos una lista de elementos en react le tenemos que dar una key
       Tenemos que identificar el elemnto del array
       */}
       {users.map(({ userName, name, isFollowing }) => {
@@ -25,7 +25,7 @@ export const MainCard = () => {
             name={name}
             InitialIsFollowing={isFollowing}
           />
-        );
+        )
       })}
 
       {/* <App userName={"elrubius"} name={"elrubius"} />
@@ -42,5 +42,5 @@ export const MainCard = () => {
         Push Me
       </button> */}
     </section>
-  );
-};
+  )
+}

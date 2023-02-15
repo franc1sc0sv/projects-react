@@ -176,3 +176,18 @@ Como inicializo un estado comprobando si existe la variable en local storage
 
 
 Leer de localStorage es muy lento es por eso que si lo dejamos afuera va ser la lectura las veces que renderizemos el compoennete y eso lo va ser lento en cambio si lo ponemos dentro de la funcion solo se va ejecutar al inicialisar el estado
+
+
+useEffect(funcion a ejecutar, lista de dependecias(array(opcional)))
+Se ejecuta cada que ves que se renderiza el componente - Si no tiene dependecias
+
+Si le pasamos un array vacio solo se va ejecutar una ves en su vida
+
+
+La lista de depencias cada ves que hayan cambios en estas se va a volver a ejecutar el useEffect
+
+
+En react siempre vamos a querer ejecutar un efecto
+
+
+STANDER
