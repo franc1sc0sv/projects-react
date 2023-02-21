@@ -190,4 +190,20 @@ La lista de depencias cada ves que hayan cambios en estas se va a volver a ejecu
 En react siempre vamos a querer ejecutar un efecto
 
 
-STANDER
+STANDARD
+
+
+
+getEventListener(window) podemos ver las subscricones activas
+
+React.Strict.Mode - Componente defecto - advertencias de codigo antiguo, incorrecto 
+  -Al montare el compoenente - ejecuta el efecto, ejecuta el cleanup y ejecuta el efecto
+  -Lo hace para ver si esta funcionando
+  -Solo sucede en modo desarrollo - para debbugerar bien
+  -En produccion no pasa ignora el Strict.Mode
+
+
+  REACT DEVELOPER TOOLS
+    -Icono rojo nos dice que estamos en modo desarrollo
+    -Profiler - temas de rendimiento 
+
