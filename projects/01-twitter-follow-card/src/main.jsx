@@ -1,6 +1,4 @@
 // Punto de entranda de nuestra aplicacion
-import React from 'react'
-import useState from 'react'
 import ReactDOM from 'react-dom/client'
 import './index.css'
 import { MainCard } from './MainCard.jsx'

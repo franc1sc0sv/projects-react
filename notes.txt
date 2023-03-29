@@ -207,3 +207,34 @@ React.Strict.Mode - Componente defecto - advertencias de codigo antiguo, incorre
     -Icono rojo nos dice que estamos en modo desarrollo
     -Profiler - temas de rendimiento 
 
+
+Manejar minimamente dos estados y que uno depende del otro
+
+Si tuviera tiempo de hacer algo mas que haria?
+Un test en twean 
+
+Para saber react - tienes que saber inicialisar uno es decir no usar vite, create react app, etc <- Aveces no dejan usar eso en entrevistas
+
+LO IMPORTANTE ES SABER COMO HACER EL PUNTO DE ENTRADA
+
+
+
+  npm create vite@latest
+  Vanilla
+  JS
+  npm install
+  npm run dev
+  
+  Dependencias
+  npm install @vitejs/plugin-react -E
+  npm install react react-doom -E
+
+
+
+  CUSTOM HOOK <- Reutilizar la logica de los compoenetes en diferentes componentes
+
+  Evitar pasar el setState hacia afuera
+
+  npm init playwright@latest <- testing basico
+
+  El test mas basico ver si algo le sabe al usuario si observar algo
