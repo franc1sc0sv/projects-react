@@ -15,7 +15,7 @@
 <script>
     const insertPaths = async () => {
         const root = document.getElementById("root")
-        const component = ({ path, projectName }) => `<a target="_blank href="${path}">${projectName}</a>`
+        const component = ({ path, projectName }) => `<a target="_blank" href="${path}">${projectName}</a>`
         const response = await fetch("./paths.json")
         const data = await response.json()
         let paths = []
