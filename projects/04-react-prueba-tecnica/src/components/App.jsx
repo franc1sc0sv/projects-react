@@ -16,6 +16,8 @@ export const App = () => {
     setRandomFact()
   }
 
+  console.log(fact)
+
   return (
     <>
       <main className='max-w-sm mx-auto my-auto mt-3'>
