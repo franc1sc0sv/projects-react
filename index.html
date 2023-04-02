@@ -15,7 +15,7 @@
 <script>
     const insertPaths = async () => {
         const root = document.getElementById("root")
-        const component = ({ path, projectName }) => `<a href="${path}">${projectName}</a>`
+        const component = ({ path, projectName }) => `<a target="_blank href="${path}">${projectName}</a>`
         const response = await fetch("./paths.json")
         const data = await response.json()
         let paths = []
@@ -53,6 +53,7 @@
         gap: 1rem;
         font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
         text-transform: uppercase;
+        font-size: x-large;
     }
 
     a {
