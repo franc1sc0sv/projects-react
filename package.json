@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "standardFix": "standard && node my-tests.js"
+    "standardFix": "standard && node my-tests.js",
+    "paths": "node index.js"
   },
   "keywords": [],
   "author": "",
