@@ -110,12 +110,10 @@ IMPORTANTE EN React
 
 Diferencia entre componente y elemento 
 
-
 Un componente es una factoria de elementos - Una funcion que al ejecutarla te devuelve un elemento
 El elemento es lo que renderiza react
 
 Los componentes crean elementos y los elemntos son los que renderizan react
-
 
 ESTADOS EN REACT
 
@@ -238,3 +236,87 @@ LO IMPORTANTE ES SABER COMO HACER EL PUNTO DE ENTRADA
   npm init playwright@latest <- testing basico
 
   El test mas basico ver si algo le sabe al usuario si observar algo
+
+
+
+  MOCKS de datos
+  El indice de el array esta malo usarlo como key al mapear un arreglo
+  Usar el contrato de la api dentro del componente
+  El componente esta atado a como funciona la API
+  Mappear desde un punto el contrato de la Api y no utilizar este contrado muy profundo en los componentes
+
+  Formas de manejar formularios en REACT
+    Controladas:
+    
+    React va a controlar lo que escribimos por medio de un estado
+    Cada que cambie le valor del input se actualice el estado
+    Hace que sea mucho mas lento
+    Cada que actualiza en input se renderiza el componente
+    Simplifica la validacion de formularios
+
+    No controladas
+      Es la mas optima y mas rapida
+    /// Vanilla
+    // const fields = new FormData(e.target)
+    // const query = fields.get('query')
+    // console.log(query)
+
+    // Vanilla pro
+    // const { query } = Object.fromEntries(new FormData(e.target))
+    // console.log(query)
+
+    /// Using hooks
+    // const inputElement = inputRef.current
+    // const value = inputElement.value
+    // console.log(value)
+
+UseRef = Referencia mutable durante todo el ciclo de vida del componente cada ves que cambia se vuelve a rendizar un componente
+  // const counter = useRef(0) // <-- El VALOR PERSISTE ENTTRE RENDERIZADOS
+  // counter.current++
+
+
+  TRUCAZO DEL INPUT REF <-- SE PUEDE USAR PARA VERIFICAR SI ES LA PRIMERA VES DE ALGO
+
+  Datazo  <-- genralmente si una logita tiene un useEffect es un custom hook
+
+
+  EL BESTO GRID
+  display: grid
+  with: 100%
+  grid-template-columns:repeat(auto-fit, minmax(200px, 1fr))
+
+
+  useMemo - memoizar un valor para que lo vuelva a calcular en funcion a una depencias
+
+    // Esto se hace cada que se renderiza el componente debido a que esta en el cuerpo del componente
+  // Este es un "calculo" que queremos memoisar este calculo queiro que la evites y quiero que la hagas cuando pase una accion
+
+  const sortedMovies = useMemo(() => {
+    return sort
+      ? [...movies].sort((a, b) => a.title.localeCompare(b.title))
+      : movies
+  }, [sort, movies])
+
+  Hay que pensar si vale la pena utilizarlo porque no podemos abusar de el
+
+  useCallback - Es la misma onda que el useMemo solo que para funciones
+
+  race conditions
+  En programación informática, una condición de carrera (race condition en inglés) ocurre cuando dos o más procesos o hilos de ejecución acceden a un recurso compartido, como puede ser la memoria o un archivo, y el resultado final depende del orden en el que se ejecuten las operaciones. Esto puede generar comportamientos impredecibles e inesperados en el programa, y es una de las fuentes más comunes de errores en sistemas concurrentes o paralelos. Para evitar las condiciones de carrera, se utilizan técnicas de sincronización y exclusión mutua, como semáforos, mutexes o monitores, que permiten que los procesos accedan al recurso compartido de manera controlada y ordenada.
+
+  En el ejercicio de movie search app cada que escribiamos haciamos llamadas a la API hay una condicion de carrera
+  Hay Dos cosas en paralelo pero no sabemos cual a terminado antes - En este caso cual llamada a la API ha terminado antes
+  Una de las primeras llamadas a la API pudo haber termiando mas tarde que las ultimas y muestra los resultados de la primera y no de la ultimas
+
+  Como lo evitamos?
+
+  BESTO WAY - crear un DEBOUNCE - Vamos hacer que el usuario mientras escribe no vamos a hacer nada y vamos a esperar que deje de escribir un tiempo por ejemplo 300ms para que la ultima llamada que haya echo el usuario vayamos a disparar
+  
+
+
+  
+
+
+
+
+
