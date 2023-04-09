@@ -1,7 +1,7 @@
-import { coins } from '../mocks/monedas'
-import { useForm } from 'react-hook-form'
-import { ComboboxPro } from './ComboboxPro'
-import { useCriptos } from '../hooks/useCriptos'
+import { coins } from "../mocks/monedas";
+import { useForm } from "react-hook-form";
+import { ComboboxPro } from "./ComboboxPro";
+import { useCriptos } from "../hooks/useCriptos";
 /**
  * Combobox
  * Crear un estado para guardar el valor seleccionado
@@ -16,27 +16,38 @@ import { useCriptos } from '../hooks/useCriptos'
 // const url = "https://min-api.cryptocompare.com/data/top/mktcapfull?limit=20&tsym=USD"
 // const url = `https://min-api.cryptocompare.com/data/pricemultifull?fsyms=${criptomoneda}&tsyms=${moneda}`
 
-export function Forms ({ getCriptoResults, isLoading }) {
-  const { handleSubmit, control } = useForm()
-  const { criptos } = useCriptos()
+export function Forms({ getCriptoResults, isLoading }) {
+  const { handleSubmit, control } = useForm();
+  const { criptos } = useCriptos();
 
   const succesSubmit = (data) => {
-    getCriptoResults({ queryData: data })
-  }
+    getCriptoResults({ queryData: data });
+  };
 
   return (
     <>
-      <form onSubmit={handleSubmit(succesSubmit)} className='flex flex-col gap-5 w-full md:w-2/4'>
-        <div className='flex flex-col gap-2 w-full'>
-          <p className='text-xl text-white font-medium'>Elige tu Moneda</p>
-          <ComboboxPro name='coins' options={coins} control={control} />
+      <form
+        onSubmit={handleSubmit(succesSubmit)}
+        className="flex flex-col w-full gap-5 md:w-2/4"
+      >
+        <div className="flex flex-col w-full gap-2">
+          <p className="text-xl font-medium text-white">Elige tu Moneda</p>
+          <ComboboxPro name="coins" options={coins} control={control} />
         </div>
-        <div className='flex flex-col gap-2'>
-          <p className='text-xl text-white font-medium'>Elige tu Criptomoneda</p>
-          <ComboboxPro name='cripto' options={criptos} control={control} />
+        <div className="flex flex-col gap-2">
+          <p className="text-xl font-medium text-white">
+            Elige tu Criptomoneda
+          </p>
+          <ComboboxPro name="cripto" options={criptos} control={control} />
         </div>
-        <button disabled={isLoading} type='submit' className='px-5 py-2 bg-indigo-700 rounded text-white font-medium'>Cotizar</button>
+        <button
+          disabled={isLoading}
+          type="submit"
+          className="px-5 py-2 font-medium text-white bg-indigo-700 rounded"
+        >
+          Cotizar
+        </button>
       </form>
     </>
-  )
+  );
 }
