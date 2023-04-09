@@ -1,6 +1,7 @@
-import { coins, coins2 } from '../mocks/monedas'
+import { coins } from '../mocks/monedas'
 import { useForm } from 'react-hook-form'
 import { ComboboxPro } from './ComboboxPro'
+import { useCriptos } from '../hooks/useCriptos'
 /**
  * Combobox
  * Crear un estado para guardar el valor seleccionado
@@ -11,19 +12,30 @@ import { ComboboxPro } from './ComboboxPro'
  *  Combobox.Botton - Mostrar opciones
  *  Combobox.Options < Combobox.Option
  */
-export function Forms () {
+
+// const url = "https://min-api.cryptocompare.com/data/top/mktcapfull?limit=20&tsym=USD"
+// const url = `https://min-api.cryptocompare.com/data/pricemultifull?fsyms=${criptomoneda}&tsyms=${moneda}`
+
+export function Forms ({ getCriptoResults, isLoading }) {
   const { handleSubmit, control } = useForm()
+  const { criptos } = useCriptos()
 
   const succesSubmit = (data) => {
-    console.log(data)
+    getCriptoResults({ queryData: data })
   }
 
   return (
     <>
-      <form onSubmit={handleSubmit(succesSubmit)} className='flex flex-col gap-2'>
-        <ComboboxPro name='coins' options={coins} control={control} />
-        <ComboboxPro name='coins2' options={coins2} control={control} />
-        <button type='submit' className='px-5 py-2 bg-red-300 rounded w-max'>Enviar</button>
+      <form onSubmit={handleSubmit(succesSubmit)} className='flex flex-col gap-5 w-full md:w-2/4'>
+        <div className='flex flex-col gap-2 w-full'>
+          <p className='text-xl text-white font-medium'>Elige tu Moneda</p>
+          <ComboboxPro name='coins' options={coins} control={control} />
+        </div>
+        <div className='flex flex-col gap-2'>
+          <p className='text-xl text-white font-medium'>Elige tu Criptomoneda</p>
+          <ComboboxPro name='cripto' options={criptos} control={control} />
+        </div>
+        <button disabled={isLoading} type='submit' className='px-5 py-2 bg-indigo-700 rounded text-white font-medium'>Cotizar</button>
       </form>
     </>
   )

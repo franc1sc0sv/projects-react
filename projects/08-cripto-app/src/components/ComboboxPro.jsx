@@ -5,6 +5,7 @@ import { BsChevronExpand } from 'react-icons/bs'
 import { useCombobox } from '../hooks/useCombobox'
 
 export function ComboboxPro ({ name, control, options }) {
+  if (options.length === 0) return
   const { selectedData, setSelectedData, setQuery, filteredData, query } = useCombobox({ options })
 
   return (
@@ -20,7 +21,7 @@ export function ComboboxPro ({ name, control, options }) {
           })}
         >
           <div className='relative mt-1'>
-            <div className='relative flex px-5 overflow-hidden text-left bg-white rounded-lg shadow-md cursor-default w-max h-max focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-teal-300'>
+            <div className='relative flex px-5 overflow-hidden text-left bg-white rounded-lg shadow-md cursor-default w-full h-max focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-teal-300'>
               <Combobox.Input
                 onChange={(e) => setQuery(e.target.value)} displayValue={(coin) => coin.name}
                 className='w-full py-4 pr-10 text-gray-900 border-none focus-visible:outline-none'
